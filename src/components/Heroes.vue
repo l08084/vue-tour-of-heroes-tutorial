@@ -1,7 +1,9 @@
 <template>
-  <div>
-    {{hero}}
-  </div>
+<div>
+    <h2>{{hero.name}} Details</h2>
+    <div><span>id: </span>{{hero.id}}</div>
+    <div><span>name: </span>{{hero.name}}</div>
+</div>
 </template>
 
 <script>
@@ -9,7 +11,10 @@ export default {
   name: 'Heroes',
   data: function() {
     return {
-      hero: 'Windstorm',
+      hero: {
+          id: 1,
+          name: 'Windstorm'
+      },
     }
   }
 };
