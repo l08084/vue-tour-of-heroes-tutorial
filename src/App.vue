@@ -1,12 +1,17 @@
 <template>
   <div id="app">
     <h1>{{title}}</h1>
+    <Heroes />
   </div>
 </template>
 
 <script>
+import Heroes from './components/Heroes'
 export default {
   name: 'app',
+  components: {
+    Heroes
+  },
   data: function() {
     return {
       title: 'Tour of Heroes',
