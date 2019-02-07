@@ -2,7 +2,10 @@
 <div>
     <h2>My Heroes</h2>
     <ul class="heroes">
-        <li v-for="hero in heroes" :key="hero.id" v-on:click="select(hero)">
+        <li v-for="hero in heroes"
+            :key="hero.id"
+            v-on:click="select(hero)"
+            v-bind:class="{ selected: selectedHero === hero }">
             <span class="badge">{{hero.id}}</span>{{hero.name}}
         </li>
     </ul>
