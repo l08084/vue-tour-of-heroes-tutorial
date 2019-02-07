@@ -2,13 +2,15 @@
 <div>
     <h2>My Heroes</h2>
     <ul class="heroes">
-        <li v-for="hero in heroes" :key="hero.id">
+        <li v-for="hero in heroes" :key="hero.id" v-on:click="select(hero)">
             <span class="badge">{{hero.id}}</span>{{hero.name}}
         </li>
     </ul>
-    <!-- <h2>{{hero.name.toUpperCase()}} Details</h2>
-    <div><span>id: </span>{{hero.id}}</div>
-    <div><span>name: </span><input v-model="hero.name"></div> -->
+    <div v-if="selectedHero">
+        <h2>{{selectedHero.name.toUpperCase()}} Details</h2>
+        <div><span>id: </span>{{selectedHero.id}}</div>
+        <div><span>name: </span><input v-model="selectedHero.name"></div>
+    </div>
 </div>
 </template>
 
@@ -29,10 +31,12 @@ export default {
             { id: 19, name: 'Magma' },
             { id: 20, name: 'Tornado' }
         ],
-        hero: {
-            id: 1,
-            name: 'Windstorm'
-            },
+        selectedHero: undefined,
+        }
+    },
+    methods: {
+        select: function(hero) {
+            this.selectedHero = hero
         }
     }
 };
