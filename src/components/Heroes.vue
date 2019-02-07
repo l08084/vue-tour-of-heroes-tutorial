@@ -12,7 +12,12 @@
     <div v-if="selectedHero">
         <h2>{{selectedHero.name.toUpperCase()}} Details</h2>
         <div><span>id: </span>{{selectedHero.id}}</div>
-        <div><span>name: </span><input v-model="selectedHero.name"></div>
+        <div>
+            <label>
+                name: 
+                <input v-model="selectedHero.name" placeholder="name">
+            </label>
+        </div>
     </div>
 </div>
 </template>
