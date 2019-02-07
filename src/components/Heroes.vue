@@ -1,8 +1,8 @@
 <template>
 <div>
-    <h2>{{hero.name}} Details</h2>
+    <h2>{{hero.name.toUpperCase()}} Details</h2>
     <div><span>id: </span>{{hero.id}}</div>
-    <div><span>name: </span>{{hero.name}}</div>
+    <div><span>name: </span><input v-model="hero.name"></div>
 </div>
 </template>
 
