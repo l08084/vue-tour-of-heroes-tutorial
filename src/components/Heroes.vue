@@ -9,20 +9,13 @@
             <span class="badge">{{hero.id}}</span>{{hero.name}}
         </li>
     </ul>
-    <div v-if="selectedHero">
-        <h2>{{selectedHero.name.toUpperCase()}} Details</h2>
-        <div><span>id: </span>{{selectedHero.id}}</div>
-        <div>
-            <label>
-                name: 
-                <input v-model="selectedHero.name" placeholder="name">
-            </label>
-        </div>
-    </div>
+    <HeroDetail v-bind:hero="selectedHero"></HeroDetail>
 </div>
 </template>
 
 <script>
+import HeroDetail from './HeroDetail.vue'
+
 export default {
     name: 'Heroes',
     data: function() {
@@ -46,6 +39,9 @@ export default {
         select: function(hero) {
             this.selectedHero = hero
         }
+    },
+    components: {
+        HeroDetail
     }
 };
 </script>
