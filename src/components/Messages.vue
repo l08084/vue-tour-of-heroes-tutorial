@@ -1,16 +1,17 @@
 <template>
-<div>
+<div v-if="messages.length">
+    <h2>Messages</h2>
+    <button class="clear" v-on:click="clear()">clear</button>
+    <div v-for="(message, index) in messages" v-bind:key="index">
+        {{message}}
+    </div>
 </div>
 </template>
 
 <script>
 export default {
     name: 'Messages',
-    data: function() {
-        return {
-            messages: [],
-        }
-    }
+    props: ['messages']
 };
 </script>
 

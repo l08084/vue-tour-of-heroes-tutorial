@@ -10,11 +10,13 @@
         </li>
     </ul>
     <HeroDetail v-bind:hero="selectedHero"></HeroDetail>
+    <Messages v-bind:messages="messages"/>
 </div>
 </template>
 
 <script>
-import HeroDetail from './HeroDetail.vue'
+import HeroDetail from './HeroDetail'
+import Messages from './Messages'
 import axios from 'axios';
 
 export default {
@@ -23,6 +25,7 @@ export default {
     return {
         heroes: undefined,
         selectedHero: undefined,
+        messages: []
         }
     },
     methods: {
@@ -31,12 +34,16 @@ export default {
         }
     },
     components: {
-        HeroDetail
+        HeroDetail,
+        Messages
     },
     beforeCreate: function () {
         axios
             .get('/mock-heroes.json')
-            .then((response) => this.heroes = response.data)
+            .then((response) => {
+                this.messages.push('HeroService: fetched heroes');
+                this.heroes = response.data
+            })
     }
 };
 </script>
