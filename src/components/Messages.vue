@@ -11,7 +11,14 @@
 <script>
 export default {
     name: 'Messages',
-    props: ['messages']
+    props: {
+      messages: {
+        type: Array,
+        default: function () {
+          return []
+        }
+      }
+    }
 };
 </script>
 
