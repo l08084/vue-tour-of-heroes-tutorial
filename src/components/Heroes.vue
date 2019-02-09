@@ -9,8 +9,11 @@
             <span class="badge">{{hero.id}}</span>{{hero.name}}
         </li>
     </ul>
-    <HeroDetail v-bind:hero="selectedHero"></HeroDetail>
-    <Messages v-bind:messages="messages"/>
+    <HeroDetail
+        v-bind:hero="selectedHero" />
+    <Messages
+        v-bind:messages="messages"
+        v-on:clear="clear()" />
 </div>
 </template>
 
@@ -31,6 +34,9 @@ export default {
     methods: {
         select: function(hero) {
             this.selectedHero = hero
+        },
+        clear: function() {
+            this.messages = [];
         }
     },
     components: {
