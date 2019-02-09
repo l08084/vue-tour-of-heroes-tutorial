@@ -2,15 +2,19 @@
   <div id="app">
     <h1>{{title}}</h1>
     <Heroes />
+    <Messages />
   </div>
 </template>
 
 <script>
 import Heroes from './components/Heroes'
+import Messages from './components/Messages'
+
 export default {
   name: 'app',
   components: {
-    Heroes
+    Heroes,
+    Messages
   },
   data: function() {
     return {
