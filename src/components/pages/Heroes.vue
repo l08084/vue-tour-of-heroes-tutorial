@@ -20,7 +20,7 @@
 <script>
 import HeroDetail from './HeroDetail'
 import Messages from './Messages'
-import axios from 'axios';
+import heroMixin from '../mixin/heroMixin'
 
 export default {
     name: 'Heroes',
@@ -44,12 +44,16 @@ export default {
         Messages
     },
     beforeCreate: function () {
-        axios
-            .get('/mock-heroes.json')
-            .then((response) => {
-                this.messages.push('HeroService: fetched heroes');
-                this.heroes = response.data
-            })
+        heroMixin
+            .methods.getHeroes()
+            .then((response) => this.heroes = response.data)
+            
+        // axios
+        //     .get('/mock-heroes.json')
+        //     .then((response) => {
+        //         this.messages.push('HeroService: fetched heroes');
+        //         this.heroes = response.data
+        //     })
     }
 };
 </script>
