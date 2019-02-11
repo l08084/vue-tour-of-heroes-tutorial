@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+import heroMixin from '../mixin/heroMixin'
 
 export default {
     name: 'Dashboard',
@@ -21,12 +21,10 @@ export default {
             heroes: []
         }
     },
-    beforeCreate: function () {
-        axios
-            .get('/mock-heroes.json')
-            .then((response) => {
-                this.heroes = response.data.slice(1, 5)
-            })
+    mixins: [ heroMixin ],
+    mounted: function () {
+        this.getHeroes()
+            .then((response) => this.heroes = response.data.slice(1, 5))
     }
 };
 </script>
