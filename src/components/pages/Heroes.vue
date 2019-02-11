@@ -11,15 +11,11 @@
     </ul>
     <HeroDetail
         v-bind:hero="selectedHero" />
-    <Messages
-        v-bind:messages="messages"
-        v-on:clear="clear()" />
 </div>
 </template>
 
 <script>
 import HeroDetail from './HeroDetail'
-import Messages from './Messages'
 import heroMixin from '../mixin/heroMixin'
 
 export default {
@@ -27,33 +23,21 @@ export default {
     data: function() {
     return {
         heroes: undefined,
-        selectedHero: undefined,
-        messages: []
+        selectedHero: undefined
         }
     },
     methods: {
         select: function(hero) {
             this.selectedHero = hero
-        },
-        clear: function() {
-            this.messages = [];
         }
     },
     components: {
-        HeroDetail,
-        Messages
+        HeroDetail
     },
-    beforeCreate: function () {
-        heroMixin
-            .methods.getHeroes()
+    mixins: [ heroMixin ],
+    mounted: function () {
+        this.getHeroes()
             .then((response) => this.heroes = response.data)
-            
-        // axios
-        //     .get('/mock-heroes.json')
-        //     .then((response) => {
-        //         this.messages.push('HeroService: fetched heroes');
-        //         this.heroes = response.data
-        //     })
     }
 };
 </script>

@@ -1,7 +1,7 @@
 <template>
 <div v-if="messages.length">
     <h2>Messages</h2>
-    <button class="clear" v-on:click="$emit('clear')">clear</button>
+    <button class="clear" v-on:click="clear()">clear</button>
     <div v-for="(message, index) in messages" v-bind:key="index">
         {{message}}
     </div>
@@ -9,16 +9,11 @@
 </template>
 
 <script>
+import heroMixin from '../mixin/heroMixin'
+
 export default {
     name: 'Messages',
-    props: {
-      messages: {
-        type: Array,
-        default: function () {
-          return []
-        }
-      }
-    }
+    mixins: [ heroMixin ]
 };
 </script>
 

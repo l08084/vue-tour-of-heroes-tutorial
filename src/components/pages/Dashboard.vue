@@ -25,7 +25,6 @@ export default {
         axios
             .get('/mock-heroes.json')
             .then((response) => {
-                this.messages.push('HeroService: fetched heroes');
                 this.heroes = response.data.slice(1, 5)
             })
     }

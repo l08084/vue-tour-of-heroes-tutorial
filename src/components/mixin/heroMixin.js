@@ -10,6 +10,9 @@ export default {
         getHeroes: function () {
             this.messages.push('HeroService: fetched heroes')
             return axios.get('/mock-heroes.json')
+        },
+        clear: function() {
+            this.messages = [];
         }
     }
 }
