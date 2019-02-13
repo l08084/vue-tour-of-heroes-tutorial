@@ -3,7 +3,8 @@
     <h3>Top Heroes</h3>
     <div class="grid grid-pad">
         <router-link
-          v-for="hero in heroes" v-bind:key="hero.key" class="col-1-4"
+          v-for="hero in heroes"
+          v-bind:key="hero.key" class="col-1-4"
           v-bind:to="{name: 'Detail', params : {id: hero.id}}">
             <div class="module hero">
                 <h4>{{hero.name}}</h4>

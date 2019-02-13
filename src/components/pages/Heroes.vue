@@ -4,35 +4,28 @@
     <ul class="heroes">
         <li v-for="hero in heroes"
             :key="hero.id"
-            v-on:click="select(hero)"
-            v-bind:class="{ selected: selectedHero === hero }">
+            v-on:click="select(hero)">
             <span class="badge">{{hero.id}}</span>{{hero.name}}
         </li>
     </ul>
-    <HeroDetail
-        v-bind:hero="selectedHero" />
 </div>
 </template>
 
 <script>
-import HeroDetail from './HeroDetail'
+import router from '../../router/index'
 import heroMixin from '../mixin/heroMixin'
 
 export default {
     name: 'Heroes',
     data: function() {
-    return {
-        heroes: undefined,
-        selectedHero: undefined
+        return {
+            heroes: undefined
         }
     },
     methods: {
         select: function(hero) {
-            this.selectedHero = hero
+            router.push({name: 'Detail', params : {id: hero.id}})
         }
-    },
-    components: {
-        HeroDetail
     },
     mixins: [ heroMixin ],
     mounted: function () {
@@ -43,10 +36,6 @@ export default {
 </script>
 
 <style scoped>
-.selected {
-    background-color: #CFD8DC !important;
-    color: white;
-}
 .heroes {
     margin: 0 0 2em 0;
     list-style-type: none;

@@ -14,21 +14,27 @@
 </template>
 
 <script>
+import heroMixin from '../mixin/heroMixin'
+
 export default {
     name: 'HeroDetail',
-    props: {
-        hero: {
-            type: Object,
-            default: function() {
-                return {
-                    id: undefined,
-                    name: undefined
-                }
-            }
+    data: function() {
+        return {
+            hero: undefined
+        }
+    },
+    mixins: [ heroMixin ],
+    created: function () {
+        this.getHero()
+    },
+    methods: {
+        getHero: function () {
+            this.getHeroes()
+                .then((response) =>
+                    this.hero = response.data.find((h) =>
+                        h.id === this.$route.params.id))
         }
     }
 };
 </script>
 
-<style scoped>
-</style>
