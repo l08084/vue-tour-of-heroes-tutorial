@@ -9,11 +9,20 @@
 </template>
 
 <script>
-import heroMixin from '../mixin/heroMixin'
+import store from '../../store/store'
 
 export default {
     name: 'Messages',
-    mixins: [ heroMixin ]
+    data: function () {
+      return {
+        messages: store.state.messages
+      }
+    },
+    methods: {
+      clear: function () {
+        store.clear()
+      }
+    }
 };
 </script>
 

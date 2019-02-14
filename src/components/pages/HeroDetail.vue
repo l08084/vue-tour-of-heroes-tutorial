@@ -1,6 +1,6 @@
 <template>
 <div>
-    <div v-if="hero.id">
+    <div v-if="hero">
         <h2>{{hero.name.toUpperCase()}} Details</h2>
         <div><span>id: </span>{{hero.id}}</div>
         <div>
@@ -16,7 +16,7 @@
 
 <script>
 import router from '../../router/index'
-import heroMixin from '../mixin/heroMixin'
+import store from '../../store/store'
 
 export default {
     name: 'HeroDetail',
@@ -25,13 +25,12 @@ export default {
             hero: undefined
         }
     },
-    mixins: [ heroMixin ],
     created: function () {
         this.getHero()
     },
     methods: {
         getHero: function () {
-            this.getHeroes()
+            store.getHero(this.$route.params.id)
                 .then((response) =>
                     this.hero = response.data.find((h) =>
                         h.id === this.$route.params.id))

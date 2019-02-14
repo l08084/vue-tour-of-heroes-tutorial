@@ -13,7 +13,7 @@
 
 <script>
 import router from '../../router/index'
-import heroMixin from '../mixin/heroMixin'
+import store from '../../store/store'
 
 export default {
     name: 'Heroes',
@@ -27,9 +27,8 @@ export default {
             router.push({name: 'Detail', params : {id: hero.id}})
         }
     },
-    mixins: [ heroMixin ],
     mounted: function () {
-        this.getHeroes()
+        store.getHeroes()
             .then((response) => this.heroes = response.data)
     }
 };
