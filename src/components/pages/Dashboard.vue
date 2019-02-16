@@ -25,8 +25,7 @@ export default {
         }
     },
     mounted: function () {
-        store.getHeroes()
-            .then((response) => this.heroes = response.data.slice(1, 5))
+        this.heroes = store.getHeroes().slice(1, 5)
     }
 };
 </script>

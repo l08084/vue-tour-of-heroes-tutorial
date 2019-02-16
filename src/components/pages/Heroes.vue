@@ -28,8 +28,7 @@ export default {
         }
     },
     mounted: function () {
-        store.getHeroes()
-            .then((response) => this.heroes = response.data)
+        this.heroes = store.getHeroes()
     }
 };
 </script>

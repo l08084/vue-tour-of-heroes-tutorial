@@ -30,10 +30,8 @@ export default {
     },
     methods: {
         getHero: function () {
-            store.getHero(this.$route.params.id)
-                .then((response) =>
-                    this.hero = response.data.find((h) =>
-                        h.id === this.$route.params.id))
+            this.hero = store.getHero(this.$route.params.id)
+                .find((hero) => hero.id === this.$route.params.id)
         },
         goBack: function () {
             router.go(-1)
