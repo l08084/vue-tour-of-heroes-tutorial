@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="detail">
     <div v-if="hero">
         <h2>{{hero.name.toUpperCase()}} Details</h2>
         <div><span>id: </span>{{hero.id}}</div>
@@ -11,7 +11,7 @@
         </div>
     </div>
     <button v-on:click="goBack()">go back</button>
-    <button v-on:click="save()">save</button>
+    <button v-on:click="save()" class="save">save</button>
 </div>
 </template>
 
@@ -74,5 +74,8 @@ button:disabled {
   background-color: #eee;
   color: #ccc;
   cursor: auto;
+}
+.save {
+  margin-left: 10px;
 }
 </style>
