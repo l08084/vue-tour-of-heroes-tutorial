@@ -45,7 +45,7 @@ export default {
             this.heroName = ''
         },
         deleteHero: function (hero) {
-            console.log(hero)
+            this.heroes = store.delete(hero)
         }
     },
     mounted: function () {

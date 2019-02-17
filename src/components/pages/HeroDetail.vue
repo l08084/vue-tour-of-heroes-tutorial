@@ -36,7 +36,7 @@ export default {
         goBack: function () {
             router.go(-1)
         },
-        save: function() {
+        save: function () {
             store.save(this.hero)
             this.goBack()
         }

@@ -39,5 +39,10 @@ export default {
     },
     genId: function (heroes) {
         return heroes.length > 0 ? Math.max(...heroes.map(hero => hero.id)) + 1 : 11
+    },
+    delete: function (hero) {
+        this.state.heroes =
+            this.state.heroes.filter(item => item.id !== hero.id)
+        return this.state.heroes;
     }
 }
