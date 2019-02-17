@@ -31,7 +31,6 @@ export default {
     methods: {
         getHero: function () {
             this.hero = store.getHero(this.$route.params.id)
-                .find((hero) => hero.id === this.$route.params.id)
         },
         goBack: function () {
             router.go(-1)
