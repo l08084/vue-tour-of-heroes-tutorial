@@ -11,6 +11,7 @@
         </div>
     </div>
     <button v-on:click="goBack()">go back</button>
+    <button v-on:click="save()">save</button>
 </div>
 </template>
 
@@ -34,6 +35,10 @@ export default {
         },
         goBack: function () {
             router.go(-1)
+        },
+        save: function() {
+            store.save(this.hero)
+            this.goBack()
         }
     }
 };

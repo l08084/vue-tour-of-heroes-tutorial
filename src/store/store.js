@@ -26,5 +26,10 @@ export default {
         this.state.messages.push(`HeroService: fetched hero id=${id}`)
         return this.state.heroes
             .find((hero) => hero.id === id)
+    },
+    save: function(hero) {
+        this.state.messages.push(`updated hero id=${hero.id}`)
+        this.state.heroes.forEach(item =>
+            item.name = item.id === hero.id ? hero.name : item.name)
     }
 }
