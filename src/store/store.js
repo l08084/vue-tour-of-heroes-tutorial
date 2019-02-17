@@ -20,6 +20,7 @@ export default {
     },
     clear: function() {
         this.state.messages = []
+        return this.state.messages
     },
     getHero: function(id) {
         this.state.messages.push(`HeroService: fetched hero id=${id}`)

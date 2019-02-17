@@ -20,7 +20,7 @@ export default {
     },
     methods: {
       clear: function () {
-        store.clear()
+        this.messages = store.clear()
       }
     }
 };
