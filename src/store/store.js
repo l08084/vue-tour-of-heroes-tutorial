@@ -18,18 +18,26 @@ export default {
         this.state.messages.push('HeroService: fetched heroes')
         return this.state.heroes
     },
-    clear: function() {
+    clear: function () {
         this.state.messages = []
         return this.state.messages
     },
-    getHero: function(id) {
+    getHero: function (id) {
         this.state.messages.push(`HeroService: fetched hero id=${id}`)
         return this.state.heroes
             .find((hero) => hero.id === id)
     },
-    save: function(hero) {
+    save: function (hero) {
         this.state.messages.push(`updated hero id=${hero.id}`)
         this.state.heroes.forEach(item =>
             item.name = item.id === hero.id ? hero.name : item.name)
+    },
+    addHero: function (name) {
+        const maxId = this.genId(this.state.heroes)
+        this.state.messages.push(`added hero w/ id=${maxId}`)
+        this.state.heroes.push({ id: maxId, name: name })
+    },
+    genId: function (heroes) {
+        return heroes.length > 0 ? Math.max(...heroes.map(hero => hero.id)) + 1 : 11
     }
 }

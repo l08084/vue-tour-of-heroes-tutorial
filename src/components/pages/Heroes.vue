@@ -1,5 +1,11 @@
 <template>
 <div>
+    <div>
+        <label>Hero name:
+            <input v-model="heroName" placeholder="name">
+        </label>
+        <button v-on:click="add(heroName)">add</button>
+    </div>
     <h2>My Heroes</h2>
     <ul class="heroes">
         <li v-for="hero in heroes"
@@ -19,12 +25,19 @@ export default {
     name: 'Heroes',
     data: function() {
         return {
-            heroes: undefined
+            heroes: undefined,
+            heroName: undefined
         }
     },
     methods: {
         select: function(hero) {
             router.push({name: 'Detail', params : {id: hero.id}})
+        },
+        add: function(name) {
+            name = name.trim();
+            if (!name) { return }
+            store.addHero(name)
+            this.heroName = ''
         }
     },
     mounted: function () {
