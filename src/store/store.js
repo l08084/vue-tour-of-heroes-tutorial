@@ -44,5 +44,8 @@ export default {
         this.state.heroes =
             this.state.heroes.filter(item => item.id !== hero.id)
         return this.state.heroes;
+    },
+    search: function (name) {
+        return this.state.heroes
     }
 }

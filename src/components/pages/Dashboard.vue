@@ -11,14 +11,19 @@
             </div>
         </router-link>
     </div>
+    <HeroSearch />
 </div>
 </template>
 
 <script>
 import store from '../../store/store'
+import HeroSearch from '../pages/HeroSearch'
 
 export default {
     name: 'Dashboard',
+      components: {
+        HeroSearch
+      },
     data: function() {
         return {
             heroes: []
