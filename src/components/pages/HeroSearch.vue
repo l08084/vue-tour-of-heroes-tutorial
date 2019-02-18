@@ -15,6 +15,7 @@
 </template>
 
 <script>
+import _ from 'lodash'
 import store from '../../store/store'
 
 export default {
@@ -35,7 +36,7 @@ export default {
             this.heroes = store.search(name)
         },
         debouncedGetHeroes: function () {
-            console.log(this.searchName);
+            this.heroes = _.debounce(this.search(this.searchName), 500)
         }
     }
 };

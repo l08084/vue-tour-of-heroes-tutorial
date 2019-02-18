@@ -43,9 +43,10 @@ export default {
     delete: function (hero) {
         this.state.heroes =
             this.state.heroes.filter(item => item.id !== hero.id)
-        return this.state.heroes;
+        return this.state.heroes
     },
     search: function (name) {
-        return this.state.heroes
+        if (name === '') { return }
+        return this.state.heroes.filter(h => h.name.indexOf(name) !== -1)
     }
 }
