@@ -36,7 +36,7 @@ export default {
             this.heroes = store.search(name)
         },
         debouncedGetHeroes: function () {
-            this.heroes = _.debounce(this.search(this.searchName), 500)
+            _.debounce(this.search(this.searchName), 500)
         }
     }
 };
