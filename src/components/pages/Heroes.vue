@@ -1,12 +1,12 @@
 <template>
 <div>
+    <h2>My Heroes</h2>
     <div>
         <label>Hero name:
             <input v-model="heroName" placeholder="name">
         </label>
         <button v-on:click="add(heroName)">add</button>
     </div>
-    <h2>My Heroes</h2>
     <ul class="heroes">
         <li v-for="hero in heroes"
             :key="hero.id">
