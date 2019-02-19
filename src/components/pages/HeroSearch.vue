@@ -43,10 +43,12 @@ export default {
 </script>
 
 <style scoped>
-.search-result li {
+.search-result a {
   border-bottom: 1px solid gray;
   border-left: 1px solid gray;
   border-right: 1px solid gray;
+  display: flex;
+  flex-direction: column;
   width: 195px;
   height: 16px;
   padding: 5px;
@@ -55,27 +57,26 @@ export default {
   list-style-type: none;
 }
  
-.search-result li:hover {
+.search-result a:hover {
   background-color: #607D8B;
 }
  
-.search-result li a {
+.search-result a {
   color: #888;
   display: block;
   text-decoration: none;
 }
  
-.search-result li a:hover {
+.search-result a:hover {
   color: white;
 }
-.search-result li a:active {
+.search-result a:active {
   color: white;
 }
 #search-box {
   width: 200px;
   height: 20px;
 }
- 
  
 ul.search-result {
   margin-top: 0;
